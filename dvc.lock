@@ -1,0 +1,48 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python prepare.py
+    deps:
+    - path: config.yaml
+      hash: md5
+      md5: 1d14e65604f498e5d4c1592bd8cbe380
+      size: 282
+    - path: data/dataset.csv
+      hash: md5
+      md5: 717820ef0af287ff346c5cabfb4c612c
+      size: 5107
+    - path: prepare.py
+      hash: md5
+      md5: ddfe17f8eeadcb2e405a8a0bf341a643
+      size: 1443
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 73dd6824727b168358077935d8f1b5ab.dir
+      size: 15270
+      nfiles: 4
+  train:
+    cmd: python train.py
+    deps:
+    - path: config.yaml
+      hash: md5
+      md5: 1d14e65604f498e5d4c1592bd8cbe380
+      size: 282
+    - path: data/processed
+      hash: md5
+      md5: 73dd6824727b168358077935d8f1b5ab.dir
+      size: 15270
+      nfiles: 4
+    - path: train.py
+      hash: md5
+      md5: 42c28513d84d28720d4f7297df08bbd6
+      size: 2554
+    outs:
+    - path: metrics.txt
+      hash: md5
+      md5: 44b7fca4f72ba7a17ffec2fdf16563fb
+      size: 130
+    - path: model.pkl
+      hash: md5
+      md5: 7b93b7c8f61d6fdb69cd822a66ba69c9
+      size: 122737

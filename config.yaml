@@ -1,0 +1,16 @@
+data:
+  test_size: 0.2
+  shuffle: true
+
+preprocessing:
+  method: "standard_scaler"   
+  drop_missing: true
+
+model:
+  model_type: "random_forest"   # logistic_regression | svm | random_forest
+  C: 1.0
+  max_iter: 200
+  n_estimators: 100
+
+training:
+  random_state: 42
